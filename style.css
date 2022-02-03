@@ -1,0 +1,265 @@
+:root {
+    --clr-lm-bg: #F6F8FF;
+    --clr-lm-white: #FEFEFE;
+    --clr-lm-ft-darkgrayblue: #4B6A9B;
+    --clr-lm-ft-maingray: #697C9A;
+    --clr-lm-ft-darkgray: #2B3442;
+    --clr-lm-blue-accent: #0079FF;
+    --clr-lm-ft-lightergray: #697C9A;
+    --clr-dm-background: #141D2F;
+    --clr-dm-lighter-bg: #1E2A47;
+}
+
+html {
+    box-sizing: border-box;
+    box-sizing: inherit;
+    font-family: 'Space Mono', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--clr-lm-bg);
+    color: var(--clr-lm-ft-darkgrayblue);
+    border-radius: 10px;
+}
+
+body.dark-theme,
+body.dark-theme .stats {
+    background-color: var(--clr-dm-background);
+    color: white;
+}
+
+
+
+body.dark-theme .title h1,
+body.dark-theme .title h3,
+body.dark-theme h2,
+body.dark-theme .search input,
+body.dark-theme .joined {
+    color: white;
+}
+
+body.dark-theme .container .title .mode-toggle #dark:hover { 
+    color: rgb(190, 36, 113) !important;
+    background-color: chocolate;
+}  
+
+body.dark-theme .search,
+body.dark-theme .search input,
+body.dark-theme .content {
+    background-color: var(--clr-dm-lighter-bg);
+    box-shadow: none;
+}
+
+body.dark-theme .search button {
+    box-shadow: none;
+}
+
+
+body.dark-theme .contact-info img {
+    filter: brightness(4);
+}
+
+.container {
+    margin-inline: 15px;
+}
+
+.title {
+    margin-block: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--clr-lm-ft-darkgray);
+}
+
+.title h3 {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--clr-lm-ft-darkgrayblue);
+    margin-right: 7px;
+}
+
+.title h1, 
+.title h3 {
+    display: inline;
+}
+
+.mode-icon {
+    position: relative;
+    top: 3px;
+}
+
+.mode-toggle {
+    cursor: pointer;
+}
+
+.light-mode .mode-icon {
+    filter: brightness(90%)
+}
+
+.light-mode:hover {
+    filter: brightness(0%);
+    color: black;
+}
+
+.dark-mode {
+    display: none;
+}
+
+.search {
+    padding: 8px;
+}
+
+.search button {
+    color: var(--clr-lm-white);
+    background-color: var(--clr-lm-blue-accent);
+    border-radius: inherit;
+    border-style: none;
+    padding: 12px 19px 12px 19px;
+    font: inherit;
+    font-size: 15px;
+    box-shadow: 0px 5px 5px rgb(175, 174, 174);
+    cursor: pointer;
+}
+
+.search,
+.content {
+    border-radius: 10px;
+    display: flex;
+    background-color: var(--clr-lm-white);
+    box-shadow: 0px 5px 10px rgb(213, 213, 230);
+}
+
+.search img {
+    object-fit: none;
+}
+
+.search input {
+    font: inherit;
+    font-size: 13px;
+    border-style: none;
+    width: 100%;
+}
+
+.search input:focus {
+    outline: none;
+}
+
+.content {
+    margin-top: 20px;
+    padding: 30px 20px 30px 20px;
+    flex-direction: column;
+}
+
+.content h2 {
+    color: var(--clr-lm-ft-darkgray);
+    font-size: 20px;
+}
+
+.profile-main {
+    display: flex;
+}
+
+.profile-info > * {
+    margin: 0;
+}
+
+.twitter {
+    color: var(--clr-lm-blue-accent);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.joined {
+    color: var(--clr-lm-ft-lightergray);
+}
+
+.content > * {
+    margin-bottom: 25px;
+}
+
+.description {
+    line-height: 27px;
+}
+
+.stats {
+    background-color: var(--clr-lm-bg);
+    border-radius: 10px;
+    padding: 20px 30px 10px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats div {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.stats h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.contact-info img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.contact-info span {
+    position: relative;
+    bottom: 4px;
+}
+
+.location-icon {
+    object-fit: scale-down;
+}
+
+
+@media (min-width: 760px) {
+    .container {
+        width: 75vw;
+        margin-top: 70px;
+    }
+    .search input {
+        margin-left: 15px;
+        font-size: 15px !important;
+    }
+    .search img {
+        margin-left: 10px;
+    }
+    
+    .search button {
+        box-shadow: none;
+    }
+    .contact-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .content {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 990px) {
+    .container {
+        width: 40vw;
+        margin: 30px;
+    }
+}
