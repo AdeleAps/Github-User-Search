@@ -41,9 +41,10 @@ body.dark-theme .joined {
     color: white;
 }
 
+/* Something's off with inheritence here. Need to fix this later. */
+
 body.dark-theme .container .title .mode-toggle #dark:hover { 
     color: rgb(190, 36, 113) !important;
-    background-color: chocolate;
 }  
 
 body.dark-theme .search,
@@ -234,7 +235,7 @@ body.dark-theme .contact-info img {
 @media (min-width: 760px) {
     .container {
         width: 75vw;
-        margin-top: 70px;
+        margin: 0 px 30px 30px 30px;
     }
     .search input {
         margin-left: 15px;
@@ -255,11 +256,25 @@ body.dark-theme .contact-info img {
     .content {
         padding: 40px;
     }
+    .title {
+        margin: 10px;
+        margin-top: 10px;
+    }
+}
+
+.profile-pic img {
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
 }
 
 @media (min-width: 990px) {
     .container {
         width: 40vw;
-        margin: 30px;
+        margin-top: 0px;
+    }
+    
+    body {
+        margin: 0;
     }
 }

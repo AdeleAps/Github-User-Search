@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
   <title>GitHub User Search App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,23 +27,22 @@
       </div>  
     </div>
   </div>  
-  <div class="search">
+  <form id="gitHubForm" class="search">
     <img src="./assets/icon-search.svg" alt="Search icon">
-    <input type="search" placeholder="Search GitHub username…">
-    <button type="Search">Search</button>
-  </div>
+    <input id="usernameInput" name="username" type="text" placeholder="Search GitHub username…">
+    <button type="submit" value="submit">Search</button>
+  </form>
   <div class="content">
     <div class="profile-main">
-      <div class="profile-pic">
-        <img>
+      <div id="profile-pic" class="profile-pic">
       </div>
       <div class="profile-info">
-        <h2>Username</h2>
-        <p class="twitter">@twitter</p>
-        <p class="joined">Joined</p>
+        <h2 id="username"></h2>
+        <p id="twitter" class="twitter"></p>
+        <p id="joined" class="joined"></p>
       </div>
     </div>
-    <div class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, officiis.</div>
+    <div id="description" class="description"></div>
     <div class="stats">
       <div>
         <div>Repos</div>
@@ -79,6 +77,6 @@
    </div>
   </div>
 </div>
-  
+<script src="script.js"></script>  
 </body>
 </html>
