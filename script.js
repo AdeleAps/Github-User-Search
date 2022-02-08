@@ -33,16 +33,26 @@ function requestUser(username){
   console.log(data);
 
   let username = document.getElementById('username');
-  username.textContent = data.name;
+  if (!data.name) {
+    username.textContent = data.login;
+  } else {
+    username.textContent = data.name;
+  }
 
   let twitter = document.getElementById('twitter');
-  twitter.textContent = '@' + data.twitter_username;
+  if (!data.twitter_username) {
+    twitter.style.display = "none";
+  } else {
+    twitter.style.display = "block";
+    twitter.textContent = '@' + data.twitter_username;
+  }
 
   let joined = document.getElementById('joined');
   let monthIndex = (parseInt(data.created_at.substr(5, 2), 10) - 1);
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let month = months[monthIndex];
   joined.textContent = 'Joined ' + data.created_at.substr(8, 2) + " " + month + " " + data.created_at.substr(0, 4);
+
   let description = document.getElementById('description');
   description.textContent = data.bio;
 
@@ -50,7 +60,52 @@ function requestUser(username){
   let img = document.createElement('img');
   img.src = data.avatar_url;
   profilePic.append(img);    
+
+  let repos = document.getElementById('repos');
+  repos.textContent = data.public_repos;
+
+  let followers = document.getElementById('followers');
+  followers.textContent = data.followers;
+
+  let following = document.getElementById('following');
+  following.textContent = data.following;
+  
+  let location = document.getElementById('location');
+  if (!data.location) {
+    location.textContent = "Not Available";
+    location.parentElement.style.opacity = "0.5";
+  } else {
+  location.textContent = data.location;
+  location.parentElement.style.opacity = "1";
+}
+
+  let twitterInfo = document.getElementById('twitter-info');
+  if (!data.twitter_username) {
+    twitterInfo.textContent = "Not Available";
+    twitterInfo.parentElement.style.opacity = "0.5";
+  } else {
+    twitterInfo.textContent = data.twitter_username;
+    twitterInfo.parentElement.style.opacity = "1";
+}
+
+  let website = document.getElementById('website');
+  if (!data.blog) {
+    website.textContent = "Not Available";
+    website.parentElement.style.opacity = "0.5";
+  } else {
+    website.textContent = data.blog;
+    website.parentElement.style.opacity = "1";
+}
+
+  let company = document.getElementById('company');
+  if (!data.company) {
+    company.textContent = "Not Available";
+    company.parentElement.style.opacity = "0.5";
+  } else {
+    company.textContent = data.company;
+    company.parentElement.style.opacity = "1";
   }
+}
 xhr.send();
 }
 
