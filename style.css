@@ -58,7 +58,6 @@ body.dark-theme .search button {
     box-shadow: none;
 }
 
-
 body.dark-theme .contact-info img {
     filter: brightness(4);
 }
@@ -107,8 +106,7 @@ body.dark-theme .contact-info img {
 }
 
 .light-mode:hover {
-    filter: brightness(0%);
-    color: black;
+    filter: brightness(50%);
 }
 
 .dark-mode {
@@ -128,6 +126,15 @@ body.dark-theme .contact-info img {
     font: inherit;
     font-size: 15px;
     box-shadow: 0px 5px 5px rgb(175, 174, 174);
+    cursor: pointer;
+}
+
+.button-title {
+    border-style: none;
+    background-color: inherit;
+}
+
+.button-title:hover {
     cursor: pointer;
 }
 

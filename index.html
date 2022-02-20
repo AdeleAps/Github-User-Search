@@ -15,7 +15,7 @@
 <body>
 <div class="container">
   <div class="title">
-    <h1>devfinder</h1>
+    <button type="submit" onClick="refreshPage()" class="button-title"><h1>devfinder</h1></button>
     <div class="mode-toggle">
       <div id="light" class="light-mode toggle" onclick="toggleMode(event, 'dark')">
         <h3>DARK</h3>
@@ -23,7 +23,7 @@
       </div>  
       <div id="dark" class="dark-mode toggle" onclick="toggleMode(event, 'light')">
         <h3>LIGHT</h3>
-        <img class="mode-icon" src="./assets/icon-sun.svg" alt="Icon for switching to dark mode">
+        <img class="mode-icon" src="./assets/icon-sun.svg" alt="Icon for switching to light mode">
       </div>  
     </div>
   </div>  
@@ -37,42 +37,42 @@
       <div id="profile-pic" class="profile-pic">
       </div>
       <div class="profile-info">
-        <h2 id="username"></h2>
-        <p id="twitter" class="twitter"></p>
-        <p id="joined" class="joined"></p>
+        <h2 class="input" id="username"></h2>
+        <p class="input twitter" id="twitter"></p>
+        <p class="input joined" id="joined"></p>
       </div>
     </div>
     <div id="description" class="description"></div>
     <div class="stats">
       <div>
         <div>Repos</div>
-        <h2 id="repos"></h2>
+        <h2 class="input" id="repos"></h2>
       </div>
       <div>
         <div>Followers</div>
-        <h2 id="followers"></h2>
+        <h2 class="input" id="followers"></h2>
       </div>
       <div>
         <div>Following</div>
-        <h2 id="following"></h2>
+        <h2 class="input" id="following"></h2>
       </div>
     </div>
    <div class="contact-info">
      <div>
        <img class="location-icon" src="./assets/icon-location.svg" alt="Location icon">
-       <span id="location"></span>
+       <span class="input" id="location"></span>
      </div>
      <div>
       <img src="./assets/icon-website.svg" alt="Personal website icon">
-      <span id="website"></span>
+      <span class="input" id="website"></span>
      </div>
      <div>
       <img src="./assets/icon-twitter.svg" alt="Twitter icon">
-      <span id="twitter-info"></span>
+      <span class="input" id="twitter-info"></span>
      </div>
      <div>
       <img src="./assets/icon-company.svg">
-      <span id="company"></span>
+      <span class="input" id="company"></span>
      </div>
    </div>
   </div>

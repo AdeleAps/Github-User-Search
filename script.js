@@ -8,6 +8,12 @@ function toggleMode(event, mode) {
       }
     document.getElementById(mode).style.display = "inline";
     document.body.classList.toggle("dark-theme");
+    
+    if (document.body.classList.contains("dark-theme")) {
+      localStorage.setItem("background", "dark-theme");
+      } else {
+        localStorage.setItem("background", "");
+      }
 }
 
 // GitHub API
@@ -20,6 +26,10 @@ gitHubForm.addEventListener('submit', (e) => {
   let gitHubUsername = usernameInput.value;
   requestUser(gitHubUsername);
   document.getElementById("profile-pic").innerHTML = "";
+  let input = document.querySelectorAll(".input");
+  for (i = 0; i < input.length; i++) {
+    input[i].textContent = "";
+  }
 })
 
 // display API data
@@ -108,6 +118,23 @@ function requestUser(username){
 }
 xhr.send();
 }
+
+// page refresh when clicking the title
+
+function refreshPage() {
+  window.location.reload();
+  document.getElementById("usernameInput").value = "";
+}
+
+// saves light/dark mode preference
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  let background = localStorage.getItem("background");
+  if(background) {
+    document.body.className += background;
+  }
+});
+
 
 
 
