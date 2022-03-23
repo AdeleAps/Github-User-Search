@@ -285,8 +285,10 @@ a:visited {
     color: inherit;
 }
 
-.website-na {
-    display:none;
+.website-state {
+    text-decoration: none;
+    cursor: default;
+    color: inherit;
 }
 
 @media (min-width: 990px) {

@@ -119,10 +119,12 @@ function requestUser(username){
 
   let website = document.getElementById('website');
   if (!data.blog) {
+    website.setAttribute("href", "javascript: void(0");
+    website.classList.add("website-state");
     infoError(website);
   } else {
-    const link = document.createElement("a");
     website.setAttribute("href", data.blog);
+    website.classList.remove("website-state");
     website.textContent = data.blog;
     infoSuccess(website);
 }
