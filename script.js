@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let background = window.localStorage.getItem("background");
   if(background) {
     document.body.className += background;
+    document.getElementById("light").style.display = "none";
+    document.getElementById("dark").style.display = "inline";
   }
 });
 
@@ -37,10 +39,8 @@ gitHubForm.addEventListener('submit', (e) => {
   let input = document.querySelectorAll(".input");
   for (i = 0; i < input.length; i++) {
     input[i].textContent = "";
-  document.getElementById("content").style.display = "block";
   }}
 )
-
 
 function infoError(name) {
   name.textContent = "Not Available";
@@ -58,14 +58,11 @@ function requestUser(username){
   const url = `https://api.github.com/users/${username}`;
   xhr.open('GET', url, true);
 
-  xhr.onerror = function() {
-  alert("Invalid value");
-  }
-
   xhr.onload = function() {
   const data = JSON.parse(this.response);
   if ("login" in data) {
-  let username = document.getElementById('username');
+    document.getElementById("content").style.display = "block";
+    let username = document.getElementById('username');
 
   if (!data.name) {
     username.textContent = data.login;
@@ -124,6 +121,8 @@ function requestUser(username){
   if (!data.blog) {
     infoError(website);
   } else {
+    const link = document.createElement("a");
+    website.setAttribute("href", data.blog);
     website.textContent = data.blog;
     infoSuccess(website);
 }
@@ -145,8 +144,6 @@ else {
 xhr.send();
 }
 
-
-
 // page refresh when clicking the title
 
 function refreshPage() {
@@ -154,10 +151,22 @@ function refreshPage() {
   document.getElementById("usernameInput").value = "";
 }
 
+// media query for mobile - text wrapping
 
+function wrapText() {
+const mediaMobile = window.matchMedia("(max-width: 759px)")
+const media = window.matchMedia("(min-width: 760px)")
+const input = document.getElementById("usernameInput");
 
-
-
+  if (mediaMobile.matches) {
+    input.setAttribute("placeholder", "Search Username…");
+    } 
+  else if (media.matches) { 
+      input.setAttribute("placeholder", "Search GitHub username…");
+    }
+}
+window.onload = wrapText();
+window.addEventListener("resize", wrapText);
 
 
 

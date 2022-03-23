@@ -36,18 +36,21 @@ body.dark-theme .stats {
 
 
 body.dark-theme .title h1,
-body.dark-theme .title h3,
 body.dark-theme h2,
+body.dark-theme h3,
 body.dark-theme .search input,
 body.dark-theme .joined {
     color: white;
 }
 
-/* Something's off with inheritence here. Need to fix this later. */
 
-body.dark-theme .container .title .mode-toggle #dark:hover { 
-    color: rgb(190, 36, 113) !important;
-}  
+.title h3 {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--clr-lm-ft-darkgrayblue);
+    margin-right: 7px;
+}
 
 body.dark-theme .search,
 body.dark-theme .search input,
@@ -81,14 +84,6 @@ body.dark-theme .contact-info img {
     color: var(--clr-lm-ft-darkgray);
 }
 
-.title h3 {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: var(--clr-lm-ft-darkgrayblue);
-    margin-right: 7px;
-}
-
 .title h1, 
 .title h3 {
     display: inline;
@@ -111,6 +106,10 @@ body.dark-theme .contact-info img {
     filter: brightness(50%);
 }
 
+.dark-mode:hover {
+    filter: brightness(50%) sepia(20) saturate(1) hue-rotate(180deg);
+}
+
 .dark-mode {
     display: none;
 }
@@ -129,6 +128,10 @@ body.dark-theme .contact-info img {
     font-size: 15px;
     box-shadow: 0px 5px 5px rgb(175, 174, 174);
     cursor: pointer;
+}
+
+.search button:hover {
+    filter: brightness(130%)
 }
 
 .button-title {
@@ -280,6 +283,10 @@ body.dark-theme .contact-info img {
 
 a:visited {
     color: inherit;
+}
+
+.website-na {
+    display:none;
 }
 
 @media (min-width: 990px) {
